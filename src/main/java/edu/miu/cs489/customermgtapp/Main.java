@@ -27,6 +27,8 @@ public class Main {
 
         CustomerMgtApp customerMgtApp = new CustomerMgtApp();
         customerMgtApp.printAllEmployeeWithPensionPlan(employees);
+
+        customerMgtApp.printUpcomingEnroll(employees);
     }
 
 }

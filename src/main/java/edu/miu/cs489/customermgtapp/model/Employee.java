@@ -8,13 +8,15 @@ public record Employee(
         String lastName,
         LocalDate employmentDate,
         Double yearlySalary,
-        PensionPlan pensionPlan)
-    {
+        PensionPlan pensionPlan) {
+    public boolean isHasPensionPlan() {
+        return pensionPlan != null;
+    }
 
     public boolean isUpcomingEnroll() {
         var nextMonth = LocalDate.now().plusMonths(1);
         var nextQualify = employmentDate.plusYears(5);
-        return true;
+        return pensionPlan == null && (nextQualify.isEqual(nextMonth) || nextQualify.isBefore(nextMonth));
     }
 
     public String toJSON() {
