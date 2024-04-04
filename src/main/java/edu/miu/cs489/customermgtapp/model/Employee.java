@@ -16,7 +16,7 @@ public record Employee(
     public boolean isUpcomingEnroll() {
         var nextMonth = LocalDate.now().plusMonths(1);
         var nextQualify = employmentDate.plusYears(5);
-        return pensionPlan == null && nextQualify.getMonth().equals(nextMonth.getMonth()) ;//&& nextQualify.isBefore(nextMonth);
+        return pensionPlan == null &&  nextQualify.getYear() == nextMonth.getYear() && nextQualify.getMonth().equals(nextMonth.getMonth()) ;//&& nextQualify.isBefore(nextMonth);
     }
 
     public String toJSON() {
